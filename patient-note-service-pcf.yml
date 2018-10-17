@@ -1,0 +1,27 @@
+spring:
+  datasource:
+    url: ${easycare.url}
+    username: ${easycare.username}
+    password: ${easycare.password}
+  security:
+    user:
+      name: pcf-user
+      password: sshItsASecret
+
+management:
+  endpoints.web.exposure.include:
+    - "health"
+    - "info"
+    - "metrics"
+    - "env"
+    - "threaddump"
+    - "httptrace"
+    - "loggers"
+  endpoint:
+    health:
+      show-details: when_authorized
+  health:
+    defaults.enabled: false
+    mongo.enabled: true
+    db.enabled: true
+
